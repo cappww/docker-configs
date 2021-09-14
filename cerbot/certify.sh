@@ -1,5 +1,5 @@
-# Nginx must be off or no on port 80
-# The --standalone flag and http challenge wont work for wildcard domains
+# Nginx must be off or not on port 80
+# The --standalone flag and http challenge will not work for wildcard domains
 # Wildcard domains require --manual and dns challenge
 sudo docker run -it --rm --name certbot \
 	-v "/etc/letsencrypt:/etc/letsencrypt" \
