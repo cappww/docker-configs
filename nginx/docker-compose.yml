@@ -10,4 +10,4 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - /etc/letsencrypt/archive/<domain-name.com>:/nginx/ssl/<domain-name.com>
 
-# The bind mount is incredibly finnicky be warned: including subdomain in the folder name does not work for some reason
+# The bind mount does not work for soft-linked files, which the /etc/letsencrypt/live files are
