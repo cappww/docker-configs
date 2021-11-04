@@ -2,3 +2,5 @@
 !.env.template
 /build/
 /dist/
+*.key
+*.pem
