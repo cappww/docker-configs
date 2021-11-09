@@ -3,8 +3,9 @@ version: "3.7"
 services: 
   vault:
     image: hashicorp/vault
-    container_name: vault_server
 
+    container_name: vault_server
+    restart: always
     cap_add: 
       - IPC_LOCK
     volumes:

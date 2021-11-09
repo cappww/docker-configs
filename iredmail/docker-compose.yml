@@ -5,6 +5,7 @@ services:
     image: iredmail/mariadb:stable
 
     container_name: iredmail_server
+    restart: always
     env_file: .env
     volumes:
       - /etc/iredmail/data/backup-mysql:/var/vmail/backup/mysql 
@@ -20,8 +21,8 @@ services:
       - /etc/iredmail/data/postfix_queue:/var/spool/postfix 
     ports:
       # container:host
-      - 80:8081   # Http Webserver 
-      - 443:4431  # Https Webserver
+      - 80:8081   # Http
+      - 443:4431  # Https
       - 25:25     # SMTP
       - 465:465   # SMTPS (SMTP over SSL)
       - 587:587   # SUBMISSION (SMTP over TLS)
