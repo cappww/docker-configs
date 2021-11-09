@@ -9,6 +9,8 @@ services:
     cap_add: 
       - IPC_LOCK
     volumes:
+      - /etc/vault/logs:/vault/logs
+      - /etc/vault/file:/vault/file
       - ./vault-config.json:/vault/config/vault-config.json
     ports:
       - 8200:8200
