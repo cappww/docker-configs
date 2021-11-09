@@ -19,12 +19,15 @@ services:
       - /etc/iredmail/data/sa_rules:/var/lib/spamassassin 
       - /etc/iredmail/data/postfix_queue:/var/spool/postfix 
     ports:
-      - 80:80 
-      - 443:443 
-      - 110:110 
-      - 995:995 
-      - 143:143 
-      - 993:993 
-      - 25:25 
-      - 465:465 
-      - 587:587 
+      - 80:80     # Http Webserver 
+      - 443:443   # Https Webserver
+      - 25:25     # SMTP
+      - 465:465   # SMTPS (SMTP over SSL)
+      - 587:587   # SUBMISSION (SMTP over TLS)
+      - 110:110   # POP3 over TLS
+      - 995:995   # POP3 over SSL
+      - 143:143   # IMAP over TLS
+      - 993:993   # IMAP over SSL
+      - 4190:4190 # Managesieve service
+
+
