@@ -1,16 +1,41 @@
 version: "3.7"
 
-services: 
+volumes:
+  files:
+    driver: local
+
+services:
   vault:
     image: hashicorp/vault
 
     container_name: vault_server
     restart: always
-    cap_add: 
+    cap_add:
       - IPC_LOCK
     volumes:
-      - /etc/vault/logs:/vault/logs
-      - /etc/vault/file:/vault/file
-      - ./vault-config.json:/vault/config/vault-config.json
+      - files:/vault
     ports:
       - 8200:8200
+    env:
+      VAULT_LOCAL_CONFIG: >-
+        {
+          "storage": {
+            "raft": {
+              "path": "./vault/data",
+              "node_id": "node1"
+            }
+          },
+          "listener": {
+            "tcp": {
+              "address": "127.0.0.1:8200",
+              "tls_disable": 1
+            }
+          },
+          "api_addr": "http://127.0.0.1:8200",
+          "cluster_addr": "https://127.0.0.1:8201",
+          "ui": true
+        }
+        
+
+
+
