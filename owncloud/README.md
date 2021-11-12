@@ -1,6 +1,6 @@
 # Steps for NGINX with SSL and Certbot
 
-1. Download certbot/cerbot in docker
+1. Download certbot/certbot in docker
 
 2. Run script to get certificates
 
