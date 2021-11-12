@@ -1,8 +1,11 @@
 {
   "storage": {
-    "raft": {
-      "path": "./vault/data",
-      "node_id": "node1"
+    // "raft": {
+    //   "path": "./vault/data",
+    //   "node_id": "node1"
+    // }
+    "file": {
+      "path": "/vault/data"
     }
   },
   "listener": {
